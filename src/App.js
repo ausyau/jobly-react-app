@@ -54,7 +54,7 @@ class App extends Component {
 
   async applyToJob(jobId) {
     console.log("APP JOB ID", jobId)
-    let applicationResponse = await JoblyApi.applyToJob(jobId)
+    await JoblyApi.applyToJob(jobId)
     const username = localStorage.getItem('username')
     const response = await JoblyApi.getUser(username)
     this.setState({ isLoggedIn: true, currentUser: response.user })
@@ -63,7 +63,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <BrowserRouter>
           <Nav isLoggedIn={this.state.isLoggedIn} logOut={this.logOut} />
           <Routes updateUser={this.updateUser} user={this.state.currentUser} logIn={this.logIn} applyToJob={this.applyToJob} />

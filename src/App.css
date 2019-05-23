@@ -1,33 +1,37 @@
-.App {
-  text-align: center;
+.link {
+  color: black;
+}
+.link:hover {
+   color: grey;
+   text-decoration: none;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.active {
+  color: orangered;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.logo {
+  display: inline-block;
+  height: 450px;
+  width: 700px;
+  background-image: url('../src/jobly_logo.png');
+  background-repeat: none;
 }
 
-.App-link {
-  color: #61dafb;
+.invitation {
+  display: inline-block;
+  height: 300px;
+  width: 700px;
+  background-image: url('https://media3.giphy.com/media/9RNGg4IQiufp6/giphy.gif');
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.streamers {
+  display: inline-block;
+  height: 200px; 
+  width: 200px; 
+  background-image: url('https://media0.giphy.com/media/3og0IC6Hag4c6sSE4o/giphy.gif');
+  background-position: center; 
 }
+/* .App {
+  background-image: url('https://media.tenor.com/images/bcf4d183aefc4cb5a559dafc0c3c7435/tenor.gif');
+} */

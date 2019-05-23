@@ -32,43 +32,52 @@ export default class Profile extends Component {
   }
 
   handleSubmit(evt) {
-    try { 
-    evt.preventDefault();
-    this.props.updateUser(this.state)
-    this.setState(st => ({
-      username: '',
-      password: '',
-      first_name: '',
-      last_name: '',
-      email: '',
-    }))
-  } catch(err) {
-    console.log(err)
+    try {
+      evt.preventDefault();
+      this.props.updateUser(this.state)
+      this.setState(st => ({
+        username: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+        email: '',
+      }))
+    } catch (err) {
+      console.log(err)
+    }
   }
-}
 
-handleChange(evt) {
-  this.setState({ [evt.target.name]: evt.target.value });
-}
+  handleChange(evt) {
+    this.setState({ [evt.target.name]: evt.target.value });
+  }
 
-render() {
-  console.log(this.props)
-  return (
-    <div>
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">Username </label>
-        <input name="username" id="username" value={this.state.username} onChange={this.handleChange} disabled></input>
-        <label htmlFor="password">Password </label>
-        <input name="password" type="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
-        <label htmlFor="first_name">Firstname </label>
-        <input name="first_name" id="first_name" value={this.state.first_name} onChange={this.handleChange} ></input>
-        <label htmlFor="last_name">Lastname </label>
-        <input name="last_name" id="last_name" value={this.state.last_name} onChange={this.handleChange} ></input>
-        <label htmlFor="email">Email </label>
-        <input name="email" id="email" value={this.state.email} onChange={this.handleChange} ></input>
-        <button>Update</button>
-      </form>
-    </div>
-  )
-}
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username </label>
+            <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} disabled></input>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password </label>
+            <input className="form-control" name="password" type="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
+          </div>
+          <div className="form-group">
+            <label htmlFor="first_name">Firstname </label>
+            <input className="form-control" name="first_name" id="first_name" value={this.state.first_name} onChange={this.handleChange} ></input>
+          </div>
+          <div className="form-group">
+            <label htmlFor="last_name">Lastname </label>
+            <input className="form-control" name="last_name" id="last_name" value={this.state.last_name} onChange={this.handleChange} ></input>
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email </label>
+            <input className="form-control" name="email" id="email" value={this.state.email} onChange={this.handleChange} ></input>
+          </div>
+          <button className="btn btn-primary">Update</button>
+        </form>
+      </div>
+    )
+  }
 }
