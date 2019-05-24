@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <button
+    className="btn btn-primary"
+    name="login"
+    onClick={[Function]}
+  >
+    Login
+  </button>
+  <button
+    className="btn btn-primary"
+    name="register"
+    onClick={[Function]}
+  >
+    Sign Up
+  </button>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="username"
+        >
+          Username 
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          name="username"
+          onChange={[Function]}
+          value=""
+        />
+        <label
+          htmlFor="password"
+        >
+          Password 
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          name="password"
+          onChange={[Function]}
+          type="password"
+          value=""
+        />
+        <button
+          className="btn btn-info"
+        >
+          Log In!
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
