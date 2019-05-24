@@ -1,3 +1,5 @@
+/* Renders a form for editing a user's profile information */
+
 import React, { Component } from 'react'
 
 export default class Profile extends Component {
@@ -15,10 +17,9 @@ export default class Profile extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // method below ensures that state is set correctly when a user hard refreshes
+  // this fixes a bug found in which user info wouldn't pre-populate in the form
   static getDerivedStateFromProps(props, state) {
-    // Any time the current user changes,
-    // Reset any parts of state that are tied to that user.
-    // In this simple example, that's just the email.
     if (props.username === state.username) {
       return {
         username: props.user.username,

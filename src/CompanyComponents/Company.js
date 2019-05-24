@@ -1,3 +1,5 @@
+/* Company component renders multiple jobs related to a company */
+
 import React, { Component } from 'react'
 import JoblyApi from '../JoblyApi';
 import Jobcard from '../JobComponents/Jobcard'
@@ -14,6 +16,7 @@ export default class Company extends Component {
   }
 
   async componentDidMount() {
+    //using company handle from URL, make an API call and set state from call
     let result = await JoblyApi.getCompany(this.props.match.params.company)
     this.setState({
       name: result.name,
@@ -35,7 +38,7 @@ export default class Company extends Component {
       <div>
         <h1>{this.state.name}</h1>
         <h3>{this.state.description}</h3>
-        {this.state.jobs.map(job => <Jobcard key={ job.id } {...job} applyToJob={this.props.applyToJob} user={this.props.user} />)}
+        {this.state.jobs.map(job => <Jobcard key={job.id} {...job} applyToJob={this.props.applyToJob} user={this.props.user} />)}
       </div>
     )
   }

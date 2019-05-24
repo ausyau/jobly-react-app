@@ -1,3 +1,6 @@
+/* Form used for search on both the 'Jobs' and 'Companies' page
+includes debounce feature */
+
 import React, { Component } from 'react'
 import _ from 'lodash'
 
@@ -9,14 +12,13 @@ export default class SearchForm extends Component {
       filter: ''
     }
 
-    this.handleSubmit=_.debounce(this.handleSubmit.bind(this), 500);
+    this.handleSubmit = _.debounce(this.handleSubmit.bind(this), 500);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    // If search is looking for job
-    this.props.search({search: this.state.filter});
+    this.props.search({ search: this.state.filter });
   }
 
   handleChange(evt) {

@@ -32,19 +32,19 @@ class App extends Component {
   async logIn() {
     const username = localStorage.getItem('username')
     const response = await JoblyApi.getUser(username)
-    this.setState(st => ({ isLoggedIn: true, currentUser: response.user }))
+    this.setState({ isLoggedIn: true, currentUser: response.user })
   }
 
   logOut() {
     localStorage.removeItem('token')
     localStorage.removeItem('username')
-    this.setState(st => ({ isLoggedIn: false, currentUser: {} }))
+    this.setState({ isLoggedIn: false, currentUser: {} })
   }
 
   async updateUser(userObj) {
     try {
       let response = await JoblyApi.updateUser(userObj);
-      this.setState(st => ({ currentUser: response.user }))
+      this.setState({ currentUser: response.user })
     } catch (err) {
       console.log(err)
     }
@@ -55,7 +55,7 @@ class App extends Component {
     const username = localStorage.getItem('username')
     const response = await JoblyApi.getUser(username)
     this.setState({ isLoggedIn: true, currentUser: response.user })
-    
+
   }
 
   render() {

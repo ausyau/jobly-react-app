@@ -1,6 +1,4 @@
-/**
- * Companies component renders a list of companies
- */
+/* Companies component renders a list of companies */
 
 import React, { Component } from 'react';
 import JoblyApi from '../JoblyApi';

@@ -1,3 +1,5 @@
+/* function below used for formatting Company handel */
+
 function unHyphenate(string) {
 
   let splitArr = string.split('-');

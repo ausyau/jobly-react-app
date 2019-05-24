@@ -1,10 +1,12 @@
+/* navbar component - navbar elements change based of user
+logged in status */
+
 import React, { Component } from 'react'
 import { NavLink } from "react-router-dom"
 
 class Nav extends Component {
 
   render() {
-    console.log('logged in?', this.props.isLoggedIn)
     const isLoggedIn = this.props.isLoggedIn ? <li> <NavLink className="link" exact to="/" onClick={this.props.logOut}>Logout</NavLink></li> : <li><NavLink exact to="/login">Login</NavLink></li>
 
     return (
@@ -29,8 +31,3 @@ class Nav extends Component {
 }
 
 export default Nav;
-{/* <li><NavLink exact to="/">Home</NavLink></li>
-<li><NavLink exact to="/companies">Companies</NavLink></li>
-<li><NavLink exact to="/jobs">Jobs</NavLink></li>
-<li><NavLink exact to="/profile">Profile</NavLink></li>
-{isLoggedIn} */}

@@ -1,3 +1,5 @@
+/* form which handles BOTH login and registering a new user */
+
 import React, { Component } from 'react';
 import JoblyApi from '../JoblyApi';
 
@@ -23,6 +25,7 @@ export default class Login extends Component {
     this.setState({ loggingIn: false })
   }
 
+  // toggle state if User clicks login button
   toggleLoginForm(evt) {
     if (evt.target.name === 'login') {
       this.setState({ loggingIn: true })
@@ -71,12 +74,12 @@ export default class Login extends Component {
       (
         <div>
           <form onSubmit={this.loginSubmit}>
-          <div className="form-group">
-            <label htmlFor="username">Username </label>
-            <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} ></input>
-            <label htmlFor="password">Password </label>
-            <input className="form-control" type="password" name="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
-            <button className="btn btn-info">Log In!</button>
+            <div className="form-group">
+              <label htmlFor="username">Username </label>
+              <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} ></input>
+              <label htmlFor="password">Password </label>
+              <input className="form-control" type="password" name="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
+              <button className="btn btn-info">Log In!</button>
             </div>
           </form>
         </div>
