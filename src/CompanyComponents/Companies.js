@@ -32,11 +32,24 @@ class Companies extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <SearchForm id="company" search={this.getCompanies} />
-        {this.state.companies.map(company => (<Companycard key={company.handle} handle={company.handle} {...company} />))}
+
+    let loggedOut = (<div className="home">
+      <div className="jumbotron jumbotron-fluid home-jumbo mx-auto">
+        <div className="container">
+          <h1 className="display-4 text-center">Welcome to Jobly</h1>
+          <p className="lead text-center">Register and find some jobs!</p>
+        </div>
       </div>
+    </div>);
+
+    let loggedIn = (<div>
+      <SearchForm id="company" search={this.getCompanies} />
+      {this.state.companies.map(company => (<Companycard key={company.handle} handle={company.handle} {...company} />))}
+    </div>
+    );
+
+    return (
+      "hi"
     );
   }
 }

@@ -6,7 +6,7 @@ export default class Companycard extends Component {
 
   render() {
     return (
-      <div id={this.props.id} className="card mt-3">
+      <div id={this.props.id} className="card mt-3 col-8 offset-md-2">
         <Link exact="true" className="link" to={`/companies/${this.props.handle}`}>
           <h5 className="card-header">{unHyphenate(this.props.handle)}</h5>
         </Link>

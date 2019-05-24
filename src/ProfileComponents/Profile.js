@@ -56,27 +56,27 @@ export default class Profile extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
+          <div className="form-group offset-md-4 col-4">
             <label htmlFor="username">Username </label>
             <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} disabled></input>
           </div>
-          <div className="form-group">
+          <div className="form-group offset-md-4 col-4">
             <label htmlFor="password">Password </label>
             <input className="form-control" name="password" type="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group offset-md-4 col-4">
             <label htmlFor="first_name">Firstname </label>
             <input className="form-control" name="first_name" id="first_name" value={this.state.first_name} onChange={this.handleChange} ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group offset-md-4 col-4">
             <label htmlFor="last_name">Lastname </label>
             <input className="form-control" name="last_name" id="last_name" value={this.state.last_name} onChange={this.handleChange} ></input>
           </div>
-          <div className="form-group">
+          <div className="form-group offset-md-4 col-4">
             <label htmlFor="email">Email </label>
             <input className="form-control" name="email" id="email" value={this.state.email} onChange={this.handleChange} ></input>
           </div>
-          <button className="btn btn-primary">Update</button>
+          <button className="btn btn-primary offset-md-5 col-2">Update</button>
         </form>
       </div>
     );

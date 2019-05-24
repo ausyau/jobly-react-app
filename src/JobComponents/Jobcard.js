@@ -24,7 +24,7 @@ export default class Jobcard extends Component {
     }
 
     return (
-      <div className="card mt-3 col-9 offset-md-2">
+      <div className="card mt-3 col-8 offset-md-2">
         <div className="card-body" id={this.props.id}>
           <h5 className="card-title">{this.props.title}</h5>
           <p className="card-text">Salary: {this.props.salary} Equity: {this.props.equity}</p>
