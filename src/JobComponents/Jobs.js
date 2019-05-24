@@ -2,10 +2,14 @@
 
 import React, { Component } from 'react';
 import JoblyApi from '../JoblyApi';
+import { Redirect } from 'react-router-dom';
+import UserContext from '../HelperComponents/userContext';
 import Jobcard from './Jobcard';
 import SearchForm from '../HelperComponents/SearchForm';
 
 export default class Jobs extends Component {
+  static contextType = UserContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,8 +19,10 @@ export default class Jobs extends Component {
   }
 
   async componentDidMount() {
-    let result = await JoblyApi.getJobs();
-    this.setState({ jobs: result });
+    if(this.context.username) {
+      let result = await JoblyApi.getJobs();
+      this.setState({ jobs: result });
+    }
   }
 
   componentWillUnmount() {
@@ -29,10 +35,20 @@ export default class Jobs extends Component {
   }
 
   render() {
+
+    let loggedIn = <div>
+      <SearchForm id='job' search={this.getJobs} />
+      {this.state.jobs.map(job => (<Jobcard key={job.id} {...job} applyToJob={this.props.applyToJob} user={this.props.user} />))}
+    </div>;
+
+    const currentUser = this.context;
+
     return (
-      <div>
-        <SearchForm id='job' search={this.getJobs} />
-        {this.state.jobs.map(job => (<Jobcard key={job.id} {...job} applyToJob={this.props.applyToJob} user={this.props.user} />))}
+      <div className="Home">
+        {currentUser.username
+          ? <div>{loggedIn} </div>
+          : <Redirect to='/' />
+        }
       </div>
     );
   }

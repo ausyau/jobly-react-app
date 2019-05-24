@@ -12,13 +12,14 @@ class JoblyApi {
       return (await axios({
         method: verb,
         url: `http://localhost:3001/${endpoint}`,
-        [verb === "get" ? "params" : "data"]: paramsOrData})).data;
-        // axios sends query string data via the "params" key,
-        // and request body data via the "data" key,
-        // so the key we need depends on the HTTP verb
+        [verb === "get" ? "params" : "data"]: paramsOrData
+      })).data;
+      // axios sends query string data via the "params" key,
+      // and request body data via the "data" key,
+      // so the key we need depends on the HTTP verb
     }
 
-    catch(err) {
+    catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.message;
       throw Array.isArray(message) ? message : [message];
@@ -51,20 +52,20 @@ class JoblyApi {
   }
 
   static async getUser(username) {
-    const res = await this.request(`users/${username}`)
+    const res = await this.request(`users/${username}`);
     return res;
   }
 
   static async updateUser(userObj) {
-    let username = userObj.username
-    delete userObj.username
-    const res = await this.request(`users/${username}`, userObj, 'patch')
+    let username = userObj.username;
+    delete userObj.username;
+    const res = await this.request(`users/${username}`, userObj, 'patch');
     return res;
   }
 
   static async applyToJob(jobId) {
-    const res = await this.request(`jobs/${jobId}/apply`, {},'post');
-    if(res.error) {
+    const res = await this.request(`jobs/${jobId}/apply`, {}, 'post');
+    if (res.error) {
       return undefined;
     }
     return res;

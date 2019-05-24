@@ -2,11 +2,14 @@
 
 import React, { Component } from 'react';
 import JoblyApi from '../JoblyApi';
+import { Redirect } from 'react-router-dom';
+import UserContext from '../HelperComponents/userContext';
 import Companycard from '../CompanyComponents/Companycard';
 import SearchForm from '../HelperComponents/SearchForm';
 
 
 class Companies extends Component {
+  static contextType = UserContext;
   constructor(props) {
     super(props);
 
@@ -18,8 +21,10 @@ class Companies extends Component {
   }
 
   async componentDidMount() {
-    let result = await JoblyApi.getCompanies();
-    this.setState({ companies: result });
+    if (this.context.username) {
+      let result = await JoblyApi.getCompanies();
+      this.setState({ companies: result });
+    }
   }
 
   componentWillUnmount() {
@@ -33,24 +38,23 @@ class Companies extends Component {
 
   render() {
 
-    let loggedOut = (<div className="home">
-      <div className="jumbotron jumbotron-fluid home-jumbo mx-auto">
-        <div className="container">
-          <h1 className="display-4 text-center">Welcome to Jobly</h1>
-          <p className="lead text-center">Register and find some jobs!</p>
-        </div>
-      </div>
-    </div>);
-
-    let loggedIn = (<div>
+    let loggedIn = <div>
       <SearchForm id="company" search={this.getCompanies} />
       {this.state.companies.map(company => (<Companycard key={company.handle} handle={company.handle} {...company} />))}
-    </div>
-    );
+    </div>;
+
+    const currentUser = this.context;
 
     return (
-      "hi"
+      <div className="Home">
+        {currentUser.username
+          ? <div>{loggedIn} </div>
+          : <Redirect to='/' />
+        }
+      </div>
     );
+
+
   }
 }
 
