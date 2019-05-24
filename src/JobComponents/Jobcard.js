@@ -14,14 +14,19 @@ export default class Jobcard extends Component {
     await this.props.applyToJob(evt.target.parentNode.id);
   }
 
+
   render() {
     let applyButton = <button type="button" className="btn btn-danger" onClick={this.handleClick} >Apply </button>;
     let appliedButton = <button type="button" className="btn btn-danger" disabled> Applied </button>;
 
     let isApplied = [];
     if(this.props.user.jobs){
+<<<<<<< Updated upstream
       isApplied = this.props.user.jobs.some(job => job.id === this.props.id);
     }
+=======
+    isApplied = this.props.user.jobs.some(job => job.id === this.props.id);}
+>>>>>>> Stashed changes
 
     return (
       <div className="card mt-3 col-8 offset-md-2">

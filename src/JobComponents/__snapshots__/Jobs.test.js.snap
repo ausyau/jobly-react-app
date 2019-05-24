@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot with no jobs 1`] = `
+<div>
+  <SearchForm
+    id="job"
+    search={[Function]}
+  />
+</div>
+`;

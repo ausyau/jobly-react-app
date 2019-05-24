@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`company matches snapshot after loading 1`] = `
+<div>
+  <h1>
+    Specialty's
+  </h1>
+  <h3>
+    zomg cookies
+  </h3>
+</div>
+`;
+
+exports[`company matches snapshot while loading 1`] = `
+<div>
+  <h1 />
+  <h3 />
+</div>
+`;
