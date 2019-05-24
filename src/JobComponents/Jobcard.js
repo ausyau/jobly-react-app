@@ -9,7 +9,6 @@ export default class Jobcard extends Component {
 
   async handleClick(evt) {
     evt.preventDefault()
-    console.log(evt.target.parentNode)
     await this.props.applyToJob(evt.target.parentNode.id)
   }
 

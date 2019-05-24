@@ -43,9 +43,7 @@ class App extends Component {
 
   async updateUser(userObj) {
     try {
-  
       let response = await JoblyApi.updateUser(userObj);
-      console.log("Response is", response)
       this.setState(st => ({ currentUser: response.user }))
     } catch (err) {
       console.log(err)
@@ -53,7 +51,6 @@ class App extends Component {
   }
 
   async applyToJob(jobId) {
-    console.log("APP JOB ID", jobId)
     await JoblyApi.applyToJob(jobId)
     const username = localStorage.getItem('username')
     const response = await JoblyApi.getUser(username)

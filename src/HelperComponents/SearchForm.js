@@ -11,7 +11,6 @@ export default class SearchForm extends Component {
 
     this.handleSubmit=_.debounce(this.handleSubmit.bind(this), 500);
     this.handleChange = this.handleChange.bind(this);
-    console.log(this.handleChange, "is it stikl workin?");
   }
 
   handleSubmit(evt) {
