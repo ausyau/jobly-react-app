@@ -1,10 +1,6 @@
-<<<<<<< Updated upstream
 /* Company component renders multiple jobs related to a company */
 
-import React, { Component } from 'react'
-=======
 import React, { Component } from 'react';
->>>>>>> Stashed changes
 import JoblyApi from '../JoblyApi';
 import Jobcard from '../JobComponents/Jobcard';
 
@@ -20,12 +16,7 @@ export default class Company extends Component {
   }
 
   async componentDidMount() {
-<<<<<<< Updated upstream
-    //using company handle from URL, make an API call and set state from call
-    let result = await JoblyApi.getCompany(this.props.match.params.company)
-=======
     let result = await JoblyApi.getCompany(this.props.match.params.company);
->>>>>>> Stashed changes
     this.setState({
       name: result.name,
       description: result.description,

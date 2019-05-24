@@ -15,10 +15,6 @@ export default class Companycard extends Component {
           <p className="card-text">{this.props.description}</p>
         </div>
       </div>
-<<<<<<< Updated upstream
-    )
-=======
     );
->>>>>>> Stashed changes
   }
 }
