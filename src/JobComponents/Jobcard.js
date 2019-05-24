@@ -21,12 +21,8 @@ export default class Jobcard extends Component {
 
     let isApplied = [];
     if(this.props.user.jobs){
-<<<<<<< Updated upstream
       isApplied = this.props.user.jobs.some(job => job.id === this.props.id);
     }
-=======
-    isApplied = this.props.user.jobs.some(job => job.id === this.props.id);}
->>>>>>> Stashed changes
 
     return (
       <div className="card mt-3 col-8 offset-md-2">

@@ -11,7 +11,6 @@ export default class Profile extends Component {
     super(props);
     this.state = {
       username: this.props.user.username,
-      password: '',
       first_name: this.props.user.first_name,
       last_name: this.props.user.last_name,
       email: this.props.user.email
@@ -41,7 +40,6 @@ export default class Profile extends Component {
       this.props.updateUser(this.state);
       this.setState(st => ({
         username: '',
-        password: '',
         first_name: '',
         last_name: '',
         email: '',
@@ -64,10 +62,6 @@ export default class Profile extends Component {
           <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} disabled></input>
         </div>
         <div className="form-group offset-md-4 col-4">
-          <label htmlFor="password">Password </label>
-          <input className="form-control" name="password" type="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
-        </div>
-        <div className="form-group offset-md-4 col-4">
           <label htmlFor="first_name">Firstname </label>
           <input className="form-control" name="first_name" id="first_name" value={this.state.first_name} onChange={this.handleChange} ></input>
         </div>
@@ -81,7 +75,7 @@ export default class Profile extends Component {
         </div>
         <button className="btn btn-primary offset-md-5 col-2">Update</button>
       </form>
-    </div>
+    </div>;
 
 
     const currentUser = this.context;

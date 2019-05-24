@@ -74,31 +74,31 @@ export default class Login extends Component {
       (
         <div>
           <form onSubmit={this.loginSubmit}>
-            <div className="form-group">
+            <div className="form-group offset-md-4">
               <label htmlFor="username">Username </label>
-              <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} ></input>
+              <input className="form-control col-5" name="username" id="username" value={this.state.username} onChange={this.handleChange} ></input>
               <label htmlFor="password">Password </label>
-              <input className="form-control" type="password" name="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
-              <button className="btn btn-info">Log In!</button>
+              <input className="form-control col-5" type="password" name="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
+              <button className="btn btn-info mt-2">Log In</button>
             </div>
           </form>
         </div>
       );
     const registerForm =
       (
-        <div>
+        <div className="offset-md-4">
           <form onSubmit={this.registerSubmit}>
             <label htmlFor="username">Username </label>
-            <input className="form-control" name="username" id="username" value={this.state.username} onChange={this.handleChange} ></input>
+            <input className="form-control col-5" name="username" id="username" value={this.state.username} onChange={this.handleChange} ></input>
             <label htmlFor="password">Password </label>
-            <input className="form-control" name="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
+            <input className="form-control col-5" name="password" id="password" value={this.state.password} onChange={this.handleChange} ></input>
             <label htmlFor="first_name">Firstname </label>
-            <input className="form-control" name="first_name" id="first_name" value={this.state.first_name} onChange={this.handleChange} ></input>
+            <input className="form-control col-5" name="first_name" id="first_name" value={this.state.first_name} onChange={this.handleChange} ></input>
             <label htmlFor="last_name">Lastname </label>
-            <input className="form-control" name="last_name" id="last_name" value={this.state.last_name} onChange={this.handleChange} ></input>
+            <input className="form-control col-5" name="last_name" id="last_name" value={this.state.last_name} onChange={this.handleChange} ></input>
             <label htmlFor="email">Email </label>
-            <input className="form-control" name="email" id="email" value={this.state.email} onChange={this.handleChange} ></input>
-            <button className="btn btn-info">Register!</button>
+            <input className="form-control col-5" name="email" id="email" value={this.state.email} onChange={this.handleChange} ></input>
+            <button className="btn btn-info mt-2">Register</button>
           </form>
         </div>
       );
@@ -107,7 +107,12 @@ export default class Login extends Component {
 
     return (
       <div>
-        <button className="btn btn-primary" name='login' onClick={this.toggleLoginForm} >Login</button><button className="btn btn-primary" name='register' onClick={this.toggleLoginForm}>Sign Up</button>
+        <div className="btn-toolbar offset-md-6" role="toolbar" aria-label="Toolbar with button groups">
+          <div className="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" className="btn btn-primary" name='login' onClick={this.toggleLoginForm}>Login</button>
+            <button type="button" className="btn btn-primary" name='register' onClick={this.toggleLoginForm}>Register </button>
+          </div>
+        </div>
         {loggingIn ? loginForm : registerForm}
       </div>
     );
