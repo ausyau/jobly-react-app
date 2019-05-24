@@ -1,6 +1,6 @@
 /* Renders a form for editing a user's profile information */
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Profile extends Component {
 
@@ -12,7 +12,7 @@ export default class Profile extends Component {
       first_name: this.props.user.first_name,
       last_name: this.props.user.last_name,
       email: this.props.user.email
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,16 +35,16 @@ export default class Profile extends Component {
   handleSubmit(evt) {
     try {
       evt.preventDefault();
-      this.props.updateUser(this.state)
+      this.props.updateUser(this.state);
       this.setState(st => ({
         username: '',
         password: '',
         first_name: '',
         last_name: '',
         email: '',
-      }))
+      }));
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
@@ -79,6 +79,6 @@ export default class Profile extends Component {
           <button className="btn btn-primary">Update</button>
         </form>
       </div>
-    )
+    );
   }
 }

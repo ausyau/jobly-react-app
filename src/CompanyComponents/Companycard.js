@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import unHyphenate from '../HelperFunctions/hyphen'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import unHyphenate from '../HelperFunctions/hyphen';
 
 export default class Companycard extends Component {
 
@@ -15,6 +15,10 @@ export default class Companycard extends Component {
           <p className="card-text">{this.props.description}</p>
         </div>
       </div>
+<<<<<<< Updated upstream
     )
+=======
+    );
+>>>>>>> Stashed changes
   }
 }

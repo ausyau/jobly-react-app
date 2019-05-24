@@ -13,7 +13,7 @@ export default class Login extends Component {
       last_name: '',
       email: '',
       loggingIn: true,
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     this.loginSubmit = this.loginSubmit.bind(this);
     this.registerSubmit = this.registerSubmit.bind(this);
@@ -22,15 +22,15 @@ export default class Login extends Component {
   }
 
   registeringUser() {
-    this.setState({ loggingIn: false })
+    this.setState({ loggingIn: false });
   }
 
   // toggle state if User clicks login button
   toggleLoginForm(evt) {
     if (evt.target.name === 'login') {
-      this.setState({ loggingIn: true })
+      this.setState({ loggingIn: true });
     } else {
-      this.setState({ loggingIn: false })
+      this.setState({ loggingIn: false });
     }
   }
 
@@ -39,28 +39,28 @@ export default class Login extends Component {
       evt.preventDefault();
       let { username, password, first_name, last_name, email } = this.state;
       const token = await JoblyApi.registerUser({ username, password, first_name, last_name, email });
-      this.loginWithToken(token, username)
+      this.loginWithToken(token, username);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   async loginSubmit(evt) {
     try {
       evt.preventDefault();
-      let token = await JoblyApi.loginUser({ username: this.state.username, password: this.state.password })
-      this.loginWithToken(token, this.state.username)
+      let token = await JoblyApi.loginUser({ username: this.state.username, password: this.state.password });
+      this.loginWithToken(token, this.state.username);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   loginWithToken(token, username) {
     if (token) {
-      localStorage.setItem('token', JSON.stringify(token))
-      localStorage.setItem('username', username)
+      localStorage.setItem('token', JSON.stringify(token));
+      localStorage.setItem('username', username);
       this.props.logIn();
-      this.props.history.push('/jobs')
+      this.props.history.push('/jobs');
     }
   }
 
