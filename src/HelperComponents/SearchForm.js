@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import _ from 'lodash'
 
 export default class SearchForm extends Component {
   constructor(props) {
@@ -8,19 +9,20 @@ export default class SearchForm extends Component {
       filter: ''
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-
+    this.handleSubmit=_.debounce(this.handleSubmit.bind(this), 500);
+    this.handleChange = this.handleChange.bind(this);
+    console.log(this.handleChange, "is it stikl workin?");
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
     // If search is looking for job
-    this.props.search({ search: this.state.filter });
+    this.props.search({search: this.state.filter});
   }
 
   handleChange(evt) {
     this.setState({ [evt.target.name]: evt.target.value });
+    this.handleSubmit(evt)
   }
 
   render() {
